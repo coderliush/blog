@@ -9,6 +9,7 @@ const sidebar = require('./sidebar.js')
 
 module.exports = {
     title: 'config title',
+    base: '/Blog',
     description: 'config description',
     markdown: {
         lineNumbers: true
