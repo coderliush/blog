@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>练习 | config title</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="config description">
+    
+    <link rel="preload" href="/assets/css/0.styles.d9037849.css" as="style"><link rel="preload" href="/assets/js/app.3c5ac51e.js" as="script"><link rel="preload" href="/assets/js/2.6bf97373.js" as="script"><link rel="preload" href="/assets/js/12.b7d01c2f.js" as="script"><link rel="prefetch" href="/assets/js/10.0f9d9500.js"><link rel="prefetch" href="/assets/js/11.a3c87067.js"><link rel="prefetch" href="/assets/js/13.cdb21590.js"><link rel="prefetch" href="/assets/js/14.b8f87546.js"><link rel="prefetch" href="/assets/js/3.ec67c758.js"><link rel="prefetch" href="/assets/js/4.c5ed1c7b.js"><link rel="prefetch" href="/assets/js/5.dfb6e476.js"><link rel="prefetch" href="/assets/js/6.d250b6fa.js"><link rel="prefetch" href="/assets/js/7.94b4748a.js"><link rel="prefetch" href="/assets/js/8.8e7a844b.js"><link rel="prefetch" href="/assets/js/9.42f2bf9a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d9037849.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">config title</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link router-link-active">
+  算法结构
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  React源码解析
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link router-link-active">
+  算法结构
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  React源码解析
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JavaScript基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/JavaScript/柯里化和偏函数.html" class="sidebar-link">柯里化和偏函数</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="练习"><a href="#练习" class="header-anchor">#</a> 练习</h1> <h2 id="leetcode-65-有效的数字"><a href="#leetcode-65-有效的数字" class="header-anchor">#</a> LeetCode:65.有效的数字</h2> <div class="language-javaScript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">/**
+ * @param {string} s
+ * @return {boolean}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">isNumber</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> graph <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token number">0</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;blank&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;sign&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;.&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;digit&quot;</span><span class="token operator">:</span> <span class="token number">6</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token number">1</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;.&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;digit&quot;</span><span class="token operator">:</span> <span class="token number">6</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token number">2</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;digit&quot;</span><span class="token operator">:</span> <span class="token number">3</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token number">3</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;digit&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;E&quot;</span><span class="token operator">:</span> <span class="token number">4</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token number">4</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;digit&quot;</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;sign&quot;</span><span class="token operator">:</span> <span class="token number">7</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token number">5</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;digit&quot;</span><span class="token operator">:</span> <span class="token number">5</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token number">6</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;digit&quot;</span><span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;.&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;E&quot;</span><span class="token operator">:</span> <span class="token number">4</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token number">7</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;digit&quot;</span><span class="token operator">:</span> <span class="token number">5</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>c <span class="token keyword">of</span> s<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">&gt;=</span> <span class="token string">'0'</span> <span class="token operator">&amp;&amp;</span> c <span class="token operator">&lt;=</span> <span class="token string">&quot;9&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            c <span class="token operator">=</span> <span class="token string">&quot;digit&quot;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">===</span> <span class="token string">' '</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            c <span class="token operator">=</span> <span class="token string">&quot;blank&quot;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">===</span> <span class="token string">&quot;+&quot;</span> <span class="token operator">||</span> c <span class="token operator">===</span> <span class="token string">&quot;-&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            c <span class="token operator">=</span> <span class="token string">&quot;sign&quot;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">===</span> <span class="token string">&quot;e&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            c <span class="token operator">=</span> <span class="token string">&quot;E&quot;</span>
+        <span class="token punctuation">}</span>
+        state <span class="token operator">=</span> graph<span class="token punctuation">[</span>state<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">===</span> <span class="token number">3</span> <span class="token operator">||</span> state <span class="token operator">===</span> <span class="token number">5</span> <span class="token operator">||</span> state <span class="token operator">===</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br></div></div><h2 id="leetcode-417-太平洋大西洋水流问题"><a href="#leetcode-417-太平洋大西洋水流问题" class="header-anchor">#</a> LeetCode:417.太平洋大西洋水流问题</h2> <div class="language-javaScript line-numbers-mode"><pre class="language-javascript"><code>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2/1/2021, 7:40:40 PM</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.3c5ac51e.js" defer></script><script src="/assets/js/2.6bf97373.js" defer></script><script src="/assets/js/12.b7d01c2f.js" defer></script>
+  </body>
+</html>
