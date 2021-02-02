@@ -1,4 +1,10 @@
-const blog = {
+/*
+ * @Description: 
+ * @Author: liushuhao
+ * @Date: 2021-02-02 14:49:31
+ * @LastEditors: liushuhao
+ */
+const JavaScript = {
     title: 'JavaScript基础',
     collapsable: true,
         children: [
@@ -6,6 +12,15 @@ const blog = {
         ]
 }
 
+const React = {
+    title: 'React 学习总结',
+    collapsable: true,
+        children: [
+            ['/React/ref.md', 'ref']
+        ]
+}
+
 module.exports = [
-    blog,
+    JavaScript,
+    React,
 ]
