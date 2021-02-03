@@ -1,4 +1,4 @@
-**ref 的作用有两个**
+**ref 的作用**
 1. 操作 dom
 2. 使用子组件的方法
 
@@ -97,11 +97,11 @@ function Parent() {
   )
 }
 ```
-**createRef 和 useRef 的区别**
-createRef 每次都会创建新的 ref。
-useRef 返回一个可变的 ref 对象，其 .current 属性被初始化为传入的参数（initialValue）。返回的 ref 对象在组件的整个生命周期内保持不变。类似于在 class 中使用实例字段的方式。
+**createRef 和 useRef 的区别**    
+1. createRef 每次都会创建新的 ref。 useRef 返回一个可变的 ref 对象，其 .current 属性被初始化为传入的参数（initialValue）。返回的 ref 对象在组件的整个生命周期内保持不变。类似于在 class 中使用实例字段的方式。
+2. 函数组件可以使用 createRef，类组件使用 useRef 报错
 
-**useRef 的其它使用**
+**useRef 的其它使用**   
 useRef 类似于 class 组件中的 this，
 const usePrevious(value) {
   const ref = useRef()
@@ -111,11 +111,16 @@ const usePrevious(value) {
   return ref.current
 }
 
-**部分源码**
+**源码**      
 forwardRef 将组件 props，ref 做转发。
-![ref](/images/react/forwardRef.png)
+![ref](/images/react/forwardRef.png)      
+createRef 创建一个包含 current 的对象。        
+![ref](/images/react/createRef.png)
+
+Q: 为什么函数组件不能直接使用 ref    
+A：函数组件没有实例，class 组件的函数挂在原型链上，可以通过 this 获得各种方法和属性，而 function 组件内部定义的函数外部不能获取的到。
+Q: 为什么废弃 string ref 这种用法
 
 
-Q: 为什么函数组件不能直接使用 ref
-A：函数组件没有实例，class 组件的函数挂在原型链上，而 function 组件内部的函数外部不能获取的到。
+
 

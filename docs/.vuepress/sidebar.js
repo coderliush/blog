@@ -16,7 +16,8 @@ const React = {
     title: 'React 学习总结',
     collapsable: true,
         children: [
-            ['/React/ref.md', 'ref']
+            ['/React/ref.md', 'ref'],
+            ['/React/context.md', 'context']
         ]
 }
 
