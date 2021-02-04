@@ -97,7 +97,7 @@ function Sib() {
 export default Parent
 ```
 当点击 num++ 时，调用父组件的 setNum，父组件重新渲染，导致 Sib 也会重新渲染。这种情况也不能用 React.memo 优化。React.memo 仅检查 props 变更，当 context 发生变化时，它仍会重新渲染。  
-使用 useMemo，传入依赖的 state。当依赖改变时才重新渲染。     
+这里使用 useMemo 优化，传入依赖的 state。当依赖改变时才重新渲染。     
 
 ```
 import React, { useContext, useState, useMemo } from 'react'
@@ -108,10 +108,14 @@ function Parent() {
   const [num, setNum] = useState(0)
   const [sibNum, setSibNum] = useState(0)
 
+  const Sib = useMemo(() => {
+    return <>sib</>
+  }, [sibNum])
+
   return (
     <MyContext.Provider value={{ num, setNum, sibNum, setSibNum }}>
       <Child />
-      <Sib />
+      {Sib}
     </MyContext.Provider>
   )
 }
@@ -130,15 +134,7 @@ function Child() {
   )
 }
 
-function Sib() {
-  console.log('sib1')
-  const { sibNum } = useContext(MyContext)
-  return useMemo(() => {
-    console.log('sib render')
-    return <>sib</>
-  }, [sibNum])
-}
-
 
 export default Parent
 ```
+Q：为什么废弃老的 context 方式
