@@ -17,7 +17,8 @@ const React = {
     collapsable: true,
         children: [
             ['/React/ref.md', 'ref'],
-            ['/React/context.md', 'context']
+            ['/React/context.md', 'context'],
+            ['/React/memo & useMemo & useCallback.md', 'memo & useMemo & useCallback']
         ]
 }
 
