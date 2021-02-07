@@ -12,10 +12,8 @@ React.memo 作用类似于 class 组件的 pureComponent，对组件 props 进�
 **useMemo usage**   
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b])
 useMemo 接收一个函数和依赖数组，返回一个 memoized 值。如果不传依赖项，每次都会更新。传空数组只更新一次。       
-useMemo 缓存计算昂贵的值。举个例子，一个函数根据用户 id ，做一大堆判断筛选等逻辑返回一个数组。不管 id 是否相同
-函数都要执行这一段昂贵且没有必要的逻辑。现在使用 useMemo 数组增加依赖项 id，当 id 相同时，直接使用上次的值。这样就省去执行昂贵逻辑的过程。   
+useMemo 缓存函数执行的结果。比如一个组件内部有个 antd Table，组件每次渲染 Table 都会重新渲染即使是不需要的。这里可以用 useMemo 优化。第一个参数传个函数，函数返回 Table，第二个参数传入 Table 的依赖项。这样 Table 可以避免不必要的渲染。
 
-useMemo 用来缓存函数执行后的结果      
 每次点击，Parent 重新执行，B 组件都会重新渲染    
 ```
 function Parent() {
@@ -26,7 +24,7 @@ function Parent() {
     )
 }
 ```
-这里使用 useMemo：B 组件无依赖，传入空数组，缓存使用 useMemo 第一个参数的执行结果，即 B 组件。
+这里使用 useMemo：B 组件无依赖，传入空数组，缓存使用 useMemo 第一个参数的执行结果，即缓存 B 组件。     
 ```
 function Parent() {
     const [num, setNum] = useState(0)
@@ -38,6 +36,7 @@ function Parent() {
     )
 }
 ```
+useMemo 也可以缓存一段 JSX，和上文类似。    
 **useCallback usage**     
 <code>const memoizedCallback = useMemo(() => fn(a, b), [a, b])</code>     
 useCallback 传入一个函数和依赖数组，返回一个 memoized 的函数。只有当依赖改变才会返回一个新的函数。    
@@ -84,6 +83,9 @@ function Parent() {
 }
 ```
 fn 没有依赖，传入空数组后，useCallback 每次返回缓存的函数，这样 Child props 没有改变，就不会重新渲染。    
+**React.memo 和 useMemo区别**     
+React.memo 是高阶组件，也可以用于 class 组件。useMemo 是 hook，只能用在函数组件
+React.memo 对整个组件 pure。useMemo 可以对组件更细粒度的更新。当逻辑应该拆做一个组件时，当做一个组件，使用 React.memo 比对 props。当不需要拆成一个组件时，使用 useMemo，比对 state。
 **useMemo 和 useCallback区别**      
 <code>const memoizedValue = useMemo(fn, [a, b])</code>    
 <code>const memoizedCallback = useMemo(fn, [a, b])</code>   
