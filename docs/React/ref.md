@@ -94,7 +94,8 @@ function Parent() {
 }
 ```
 **createRef 和 useRef 的区别**    
-createRef 每次执行都会创建一个新的 { current: null } 对象 。在 class 组件中能使用是因为，每次更新组件的时候只会执行 render componentDidUpdate 等几个函数。useRef 持久化一个 ref 对象，current 挂载的实例或者属性会持久存在。 
+useRef 仅能用在函数组件，createRef 仅能用在 class 组件。    
+如果在函数组件中使用 createRef，那么每次函数执行的时候，每次都会创建一个新的 { current: null } 对象。createRef 可以在 class 组件中能使用是因为 class 组件分离了生命周期， 只会创建 ref 一次。
 
 **useRef 的其它使用**   
 useRef 类似于 class 组件中的 this，
@@ -121,7 +122,6 @@ Q: 为什么废弃 string ref 这种用法
 2. 实际应用中子组件无法将 ref 在传递给它的子组件。因为对子组件的内部组件来说，它的实例无法挂载一个字符串上，即 ref 不能层层传递。而对象和函数形式可以，在 React commit 阶段, React 挂载 ref。如果 ref 是一个对象且有 current 属性，则将实例挂在 current 上。如果是一个函数，将实例当做参数传进去，执行函数将实例挂载。    
 Q：函数组件能不能使用 createRef，class 组件能不能使用 useRef？
 A：class 组件使用 useRef 会报错。函数组件使用 createRef 会有些问题，因为每次更新组件函数会重新执行，createRef 会重新执行生成一个 { current: null }，此时之前 current 挂载的将被重置。      
-
 };
 ```
 

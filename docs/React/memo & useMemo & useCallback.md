@@ -85,7 +85,7 @@ function Parent() {
 fn 没有依赖，传入空数组后，useCallback 每次返回缓存的函数，这样 Child props 没有改变，就不会重新渲染。    
 **React.memo 和 useMemo区别**     
 React.memo 是高阶组件，也可以用于 class 组件。useMemo 是 hook，只能用在函数组件
-React.memo 对整个组件 pure。useMemo 可以对组件更细粒度的更新。当逻辑应该拆做一个组件时，当做一个组件，使用 React.memo 比对 props。当不需要拆成一个组件时，使用 useMemo，比对 state。
+React.memo 功能类似于做了浅比较的 shouldComponetUpdate，。useMemo 可以对组件更细粒度的更新。当逻辑应该拆做一个组件时，对组件使用 React.memo 比对 props。当不需要拆成一个组件时，使用 useMemo，比对 state。
 **useMemo 和 useCallback区别**      
 <code>const memoizedValue = useMemo(fn, [a, b])</code>    
 <code>const memoizedCallback = useMemo(fn, [a, b])</code>   

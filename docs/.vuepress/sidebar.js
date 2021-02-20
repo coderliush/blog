@@ -13,7 +13,7 @@ const JavaScript = {
 }
 
 const React = {
-    title: 'React 学习总结',
+    title: 'React',
     collapsable: true,
         children: [
             ['/React/ref.md', 'ref'],
@@ -22,7 +22,16 @@ const React = {
         ]
 }
 
+const relatedReact = {
+    title: 'React 相关',
+    collapsable: true,
+        children: [
+            ['/React/Redux.md', 'Redux'],
+        ]
+}
+
 module.exports = [
     JavaScript,
     React,
+    relatedReact
 ]
