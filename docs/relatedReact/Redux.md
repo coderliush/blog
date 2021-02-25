@@ -40,4 +40,54 @@ store.dispatch({ type: 'DECREMENT' });
 **Redux 单向数据流**
 点击 <code>view</code> 视图的按钮触发一个事件，<code>dispatch</code> 一个 <code>action</code>， <code>reducer</code> 根据 <code>action</code> 的 <code>type</code> 返回一个新的 <code>state</code>，然后更新视图。
 
-**hook 实现 Redux 部分功能**
+**hook 实现 Redux 功能**
+```
+import React, { useContext, useReducer } from 'react'
+
+const MyContext = React.createContext()
+
+const initialState = {
+    num: 0,
+    sibNum: 1,
+}
+
+function reducer(state, action) {
+    switch (action.type) {
+        case 'ADD': return {
+            ...state,
+            num: state.num + action.add
+        }
+        default: return state
+    }
+}
+
+function Parent() {
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+    return (
+        <MyContext.Provider value={{ state, dispatch }}>
+            <Child />
+            <Sibing />
+        </MyContext.Provider>
+    )
+}
+
+function Child() {
+    const { state, dispatch } = useContext(MyContext)  // 子组件使用 context 
+    return (
+        <>
+            <p>{state.num}</p>
+            <button onClick={() => { dispatch({ type: 'ADD', add: 1 }) }}>num ++</button>
+        </>
+    )
+}
+
+function Sibing() {
+    const { state } = useContext(MyContext)  // 子组件使用 context 
+    console.log('Sibing render')
+    return <>Sibing: {state.sibNum}</>
+    
+}
+
+export default Parent
+```
