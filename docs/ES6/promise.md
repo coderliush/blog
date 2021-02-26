@@ -199,7 +199,7 @@ Promise.allSettled([promise1, promise2, promise3]).then(res => {
 ```
 function timeoutPromise(promise, ms) {
   return new Promise((resolve, reject) => {
-    fetch().then(value => resolve(value))  
+    promise.then(value => resolve(value))
     // 超过一定的时间就 reject
     setTimeout(() => reject('timeout'), ms)
   })
