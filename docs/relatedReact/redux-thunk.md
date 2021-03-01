@@ -4,8 +4,24 @@
  * @Date: 2021-02-19 16:40:47
  * @LastEditors: liushuhao
 -->
-通常情况，<code>dispatch(action) action</code> 是个对象。而 <code>redux-thunk</code> 可以 <code>dispatch</code> 一个函数。
-<code>redux-thunk</code> 只做了一件事情，如果 <code>dispatch</code> 传入的 action 是个函数，那么执行这个函数，并传入 <code>dispatch</code> 作为参数供函数内部使用。
+## 使用 ##
+```
+const axiosFn = (dispatch) => {
+  setTimeout(() => {
+    dispatch({ action: 'test'})
+  })
+}
+
+store.dispatch(axiosFn)
+```
+redux-thunk 只做了 1 件事：如果 action 是个函数，传入参数 dispatch, getState，执行这个函数。
+```
+action(dispatch, getState, extraArgument)
+```
+1. axiosFn 是一个函数，执行这个函数。
+2. 给 axiosFn 函数传参数：dispatch，getState。
+
+redux-thunk 代码如下：
 ```
 function createThunkMiddleware(extraArgument) {
   return ({ dispatch, getState }) => (next) => (action) => {

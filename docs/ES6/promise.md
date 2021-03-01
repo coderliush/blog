@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: liushuhao
  * @Date: 2021-02-25 10:06:37
- * @LastEditors: Do not edit
+ * @LastEditors: liushuhao
 -->
 **promise 使用**
 ```
@@ -275,6 +275,7 @@ Promise.all = function (promiseList) {
 **Promise.race()**     
 Promise.race(iterable) 方法返回一个 promise，一旦迭代器中的某个 promise 解决或拒绝，返回的 promise 就会解决或拒绝。
 ```
+```
 const promise1 = new Promise((resolve, reject) => {
     setTimeout(resolve, 500, 'one')
 })
@@ -300,7 +301,6 @@ Promise.race = function (promiseList) {
         }
     })
 }
-```
 ```
 **Promise.allSettled()**
 Promise.allSettled() 方法返回一个对象数组，每个对象表示对应的 promise 结果。
