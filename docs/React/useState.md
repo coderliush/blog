@@ -2,14 +2,14 @@
  * @Description: 
  * @Author: liushuhao
  * @Date: 2021-02-25 10:03:33
- * @LastEditors: Do not edit
+ * @LastEditors: liushuhao
 -->
-## Usage ##
+## 使用 ##
 ```
 const [state, setState] = useState(initialState)
 ```
 与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。
-```
+```js
 function App() {
   const [count, setCount] = useState(1)
   const onClick = () => {
@@ -26,7 +26,7 @@ function App() {
 }
 ```
 每一次 setCount 都会产生一次更新，输出 3.
-```
+```js
 let isMount = false
 let workInProgressHook = null  // 当前正在执行的 hook
 

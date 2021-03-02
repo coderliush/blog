@@ -4,7 +4,7 @@
  * @Date: 2021-02-25 10:06:37
  * @LastEditors: liushuhao
 -->
-**promise 使用**
+## promise 使用 ##
 ```
 let p = new Promise((resolve) => {
     setTimeout(() => {
@@ -19,8 +19,8 @@ let p1 = p.then((value) => {
 console.log(p1)  
 ```
 输出：
-![结果1](/images/JavaScript and ES6/promise1.png)    
-![结果2](/images/JavaScript and ES6/promise2.png)   
+![](/images/js/promise1.png)    
+![](/images/js/promise2.png)   
 
 Promise 是一个构造函数   
 **原型链上的方法有：**     
@@ -33,7 +33,7 @@ Promise.reject()
 Promise.all()   
 Promise.race()  
 new Promise 生成的实例对象 p 有两个属性，PromiseState 表示当前 promise 的状态，PromiseResult 表示当前 promise 的值。 
-```
+```js
 let p = new Promise()
 p = {
     PromiseState,
@@ -41,9 +41,9 @@ p = {
 }
 ```
 
-**Promise 构造函数**          
+## Promise 构造函数 ##          
 当调用 Promise resolve 函数时，Promise state 设置为 resolved，同时保存 resolve 函数传入的 value。执行 resolvedCallbacks 成功的回调队列。
-```
+```js
 const pending = 'pending'
 const resolved = 'resolved'
 const rejected = 'reject'
@@ -89,13 +89,13 @@ function Promise(executor) {
     }
 }
 ```
-**Promise.prototype.then()**    
+## Promise.prototype.then() ##
 then() 方法返回一个 Promise。接收两个参数：Promise 的成功和失败情况的回调函数。
 当调用 then(onFulfilled, onRejected) 方法时:    
 1. 如果 Promise state 为 pending，那么把 onFulfilled，onRejected 函数传入 resolvedCallbacks，rejectedCallbacks 队列，等到执行。    
 2. 如果 Promise state 为 resolved，value 作为参数传给 onFulfilled 回调函数，并执行。    
 3. 如果 Promise state 为 rejected，reson 作为参数传给 onRejected 回调函数，并执行。    
-```
+```js
 Promise.prototype.then = function (onResolved, onRejected) {
     var self = this
     // then 的两个参数必须是函数，不然忽略
@@ -182,23 +182,23 @@ Promise.prototype.then = function (onResolved, onRejected) {
 
 }
 ```
-**Promise.prototype.catch()**   
+## Promise.prototype.catch() ##
 catch() 方法返回一个Promise，并且处理拒绝的情况。它的行为与调用 Promise.prototype.then(undefined, onRejected) 相同。 (事实上, calling obj.catch(onRejected) 内部calls obj.then(undefined, onRejected))。     
 简单来说，Promise.prototype.catch() === Promise.prototype.then(undefined, onRejected)
-```
+```js
 Promise.prototype.catch = function(onRejected) {
     return this.then(undefined, onRejected)
 }
 ```
-**Promise.prototype.finally**     
+## Promise.prototype.finally ##   
 在当前事件循环结束之后才执行。
-```
+```js
 p.then(f) 
 p.finally(f) = p.then(setTimeout(f))
 p.then(f)
 ```
 
-```
+```js
 Promise.prototype.finally = function(f) {
     return this.then(()=> {
         setTimeout(f)
@@ -208,9 +208,9 @@ Promise.prototype.finally = function(f) {
 }
 ```
 
-**Promise.resolve()**   
+## Promise.resolve() ##   
 Promise.resolve(value) 方法返回一个以 value 解析后，含有 then 方法的 Promise 对象。
-```
+```js
 const promise1 = Promise.resolve(123)
 
 promise1.then((value) => {
@@ -220,10 +220,10 @@ promise1.then((value) => {
 ```
 Promise.resolve = value => new Promise(resolve => resolve(value))
 ```
-**Promise.all()**    
+## Promise.all() ##
 Promise.all() 方法接收一个 promise 的 iterable 类型（注：Array，Map，Set 都属于ES6的 iterable 类型）的输入，返回一个数组。当有一个 promise 失败，Promise.all 返回失败的结果。     
 使用
-```
+```js
 const promise1 = Promise.resolve(3)
 const promise2 = 42
 const promise3 = new Promise((resolve, reject) => {
@@ -237,7 +237,7 @@ Promise.all([promise1, promise2, promise3]).then((values) => {
 })
 ```
 当有一个失败时,
-```
+```js
     const promise1 = Promise.reject(3)
     const promise2 = 42
     const promise3 = new Promise((resolve, reject) => {
@@ -252,7 +252,7 @@ Promise.all([promise1, promise2, promise3]).then((values) => {
 1. catch 失败的 promise，return 一个默认值。
 2. 使用 Promise.allSettled()
 实现
-```
+```js
 Promise.all = function (promiseList) {
     return new Promise((resolve, reject) => {
         let res = []
@@ -272,10 +272,10 @@ Promise.all = function (promiseList) {
         }
     })
 }
-**Promise.race()**     
+```
+## Promise.race() ##     
 Promise.race(iterable) 方法返回一个 promise，一旦迭代器中的某个 promise 解决或拒绝，返回的 promise 就会解决或拒绝。
-```
-```
+```js
 const promise1 = new Promise((resolve, reject) => {
     setTimeout(resolve, 500, 'one')
 })
@@ -289,7 +289,7 @@ Promise.race([promise1, promise2]).then((value) => {
 })
 ```
 实现
-```
+```js
 Promise.race = function (promiseList) {
     return new Promise((resolve, reject) => {
         for (let promise of promiseList) {
@@ -302,7 +302,7 @@ Promise.race = function (promiseList) {
     })
 }
 ```
-**Promise.allSettled()**
+## Promise.allSettled() ##
 Promise.allSettled() 方法返回一个对象数组，每个对象表示对应的 promise 结果。
 使用：
 ```
@@ -315,13 +315,13 @@ const promise3 = new Promise((resolve, reject) => {
 Promise.allSettled([promise1, promise2, promise3]).then(res => {
     console.log(res)
 })
-```
-输出：
-![Promise.allSettled](/images/JavaScript and ES6/allSettled.png)   
+```         
+输出：          
+![Promise.allSettled](/images/js/allSettled.png)          
 
-**Promise的其它使用**
+## Promise的其它使用 ##
 1. 实现一个可超时中断的 promise    
-```
+```js
 function timeoutPromise(promise, ms) {
   return new Promise((resolve, reject) => {
     promise.then(value => resolve(value))
@@ -331,7 +331,7 @@ function timeoutPromise(promise, ms) {
 }
 ```
 2. 延时的 promise
-```
+```js
 function delayPromise(ms) {
     return new Promise(resolve => {
         setTimeout(resolve, ms)

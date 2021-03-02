@@ -4,8 +4,8 @@
  * @Date: 2021-02-19 13:30:16
  * @LastEditors: liushuhao
 -->
-**usage**
-```
+### 使用 
+```js
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'

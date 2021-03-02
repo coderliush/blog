@@ -8,7 +8,18 @@ const JavaScript = {
     title: 'JavaScript基础',
     collapsable: true,
         children: [
-            ['/JavaScript/柯里化和偏函数.md', '柯里化和偏函数']
+            ['/JavaScript/柯里化和偏函数.md', '柯里化和偏函数'],
+            ['/JavaScript/事件循环.md', '事件循环'],
+
+        ]
+}
+
+const ES6 = {
+    title: 'ES6',
+    collapsable: true,
+        children: [
+            ['/ES6/promise.md', 'promise'],
+
         ]
 }
 
@@ -18,20 +29,25 @@ const React = {
         children: [
             ['/React/ref.md', 'ref'],
             ['/React/context.md', 'context'],
-            ['/React/memo & useMemo & useCallback.md', 'memo & useMemo & useCallback']
+            ['/React/memo & useMemo & useCallback.md', 'memo & useMemo & useCallback'],
+            ['/React/useState.md', 'useState'],
+            ['/React/useEffect.md', 'useEffect'],
         ]
 }
 
 const relatedReact = {
-    title: 'React 相关',
+    title: 'React 相关库',
     collapsable: true,
         children: [
-            ['/React/Redux.md', 'Redux'],
+            ['/relatedReact/Redux.md', 'Redux'],
+            ['/relatedReact/react-redux.md', 'react-redux'],
+            ['/relatedReact/redux-thunk.md', 'redux-thunk'],
         ]
 }
 
 module.exports = [
     JavaScript,
     React,
-    relatedReact
+    relatedReact,
+    ES6
 ]

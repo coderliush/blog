@@ -1,11 +1,11 @@
-**ref 的作用**
+## ref 的作用 ##
 1. 操作 dom
 2. 使用子组件的方法
 
-**类组件使用 ref 的两种方式：**
+## 类组件使用 ref 的两种方式： ##
 1. React.createRef() 
 2. 回调函数
-```
+```js
 class Parent extends React.Component {
   constructor() {
     super()
@@ -46,10 +46,10 @@ class Child extends React.Component {
 
 ```
 
-**函数组件使用 ref**
+## 函数组件使用 ref ##
 1. 操作子组件的 dom
 forwardRef 将子组件的 props，ref 转发。
-```
+```js
 const Child = forwardRef((props, ref) => {
   return <input ref={ref}></input>
 })
@@ -69,7 +69,7 @@ function Parent() {
 ```
 2. 调用子组件的函数
 useImperativeHandle 暴露出子组件的函数供外部使用
-```
+```js
 const Child = forwardRef((props, ref) => {
   const inputRef = useRef()
   useImperativeHandle(ref, () => ({
@@ -93,11 +93,11 @@ function Parent() {
   )
 }
 ```
-**createRef 和 useRef 的区别**    
+## createRef 和 useRef 的区别 ##    
 useRef 仅能用在函数组件，createRef 仅能用在 class 组件。    
 如果在函数组件中使用 createRef，那么每次函数执行的时候，每次都会创建一个新的 { current: null } 对象。createRef 可以在 class 组件中能使用是因为 class 组件分离了生命周期， 只会创建 ref 一次。
 
-**useRef 的其它使用**   
+## useRef 的其它使用 ##   
 useRef 类似于 class 组件中的 this，
 const usePrevious(value) {
   const ref = useRef()
@@ -107,13 +107,13 @@ const usePrevious(value) {
   return ref.current
 }
 
-**源码**      
+## 源码 ##      
 forwardRef
-![ref](/images/react/forwardRef.png)     
+![](/images/react/forwardRef.png)     
 forwardRef 将 props，ref 做转发。forwardRef 只做了一件事情，返回一个 elementType 对象。render 是传入的函数，$$typeof 是 React 加的一个标识。
-![ref](/images/react/createRef.png)     
+![](/images/react/createRef.png)     
 useRef 和 createRef 都是返回一个包含 current  属性的对象，修改这个属性不会触发组件的更新。区别在 useRef 可以传个持久化的参数。
-![ref](/images/react/useRef.png)     
+![](/images/react/useRef.png)     
 
 Q: 为什么函数组件不能直接使用 ref    
 A：函数组件没有实例，class 组件的函数挂在原型链上，可以通过 this 获得各种方法和属性，而 function 组件内部定义的函数外部不能获取的到。

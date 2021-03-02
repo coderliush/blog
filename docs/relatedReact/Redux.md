@@ -4,8 +4,8 @@
  * @Date: 2021-02-19 11:22:52
  * @LastEditors: liushuhao
 -->
-**usage**
-```
+## 使用 ##
+```js
 import { createStore } from 'redux';
 
 function counter(state = 0, action) {
@@ -41,7 +41,7 @@ store.dispatch({ type: 'DECREMENT' });
 点击 <code>view</code> 视图的按钮触发一个事件，<code>dispatch</code> 一个 <code>action</code>， <code>reducer</code> 根据 <code>action</code> 的 <code>type</code> 返回一个新的 <code>state</code>，然后更新视图。
 
 **hook 实现 Redux 功能**
-```
+```js
 import React, { useContext, useReducer } from 'react'
 
 const MyContext = React.createContext()
@@ -321,7 +321,7 @@ store.dispatch = () => {
 }
 ```
 applyMiddleware 的一个使用实例
-```
+```js
 import { createStore, applyMiddleware } from 'redux'
 import todos from './reducers'
 // 中间件可以获得 store，从而获得 store 的各种方法供自己使用。 logger 返回 '增强的功能' + dispatch 
@@ -365,13 +365,14 @@ export default function createStore(reducer, preloadedState, enhancer) {
             throw new Error('Expected the enhancer to be a function.')
         }
         // 如果有 enhancer，那么 createStore 返回 enhancer()()。
-        // 同： applyMiddleware( ...middleware )( createStore )( reducer, preloadedState )
+        // enhancer = applyMiddleware(...middlewares)
         return enhancer(createStore)(reducer, preloadedState)  
     }
     ...
 }
- // @param {...Function} middlewares The middleware chain to be applied.
- // @returns {Function}  applyMiddleware() 返回一个函数
+
+// 从上文得知，createStore 如果有 enhancer，则执行 enhancer(createStore)(reducer, preloadedState)，执行结果最后返回 { ...store, dispatch }
+// applyMiddleware 组合了每个中间件的 dispatch，返回一个包含所有功能的 dispatch。
 export default function applyMiddleware(...middlewares) {
   // 上文 createStore return 的 enhancer(createStore)(reducer, preloadedState)
   return createStore => (...args) => {
@@ -394,7 +395,7 @@ export default function applyMiddleware(...middlewares) {
 }
 ```
 compose
-```
+```js
 function compose(...funcs) {
     //如果没有中间件
     if (funcs.length === 0) {
