@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: liushuhao
  * @Date: 2021-02-02 14:49:31
- * @LastEditors: liushuhao
+ * @LastEditors: Do not edit
  */
 const JavaScript = {
     title: 'JavaScript基础',
@@ -10,7 +10,7 @@ const JavaScript = {
         children: [
             ['/JavaScript/柯里化和偏函数.md', '柯里化和偏函数'],
             ['/JavaScript/事件循环.md', '事件循环'],
-
+            ['/JavaScript/new, call, apply, bind.md', 'new, call, apply, bind']
         ]
 }
 
