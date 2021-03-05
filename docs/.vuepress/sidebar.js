@@ -2,15 +2,17 @@
  * @Description: 
  * @Author: liushuhao
  * @Date: 2021-02-02 14:49:31
- * @LastEditors: Do not edit
+ * @LastEditors: liushuhao
  */
 const JavaScript = {
     title: 'JavaScript基础',
     collapsable: true,
         children: [
+            ['/JavaScript/变量、作用域和内存.md', '变量、作用域和内存'],
             ['/JavaScript/柯里化和偏函数.md', '柯里化和偏函数'],
             ['/JavaScript/事件循环.md', '事件循环'],
-            ['/JavaScript/new, call, apply, bind.md', 'new, call, apply, bind']
+            ['/JavaScript/手写代码.md', '手写代码'],
+            ['/JavaScript/继承.md', '继承'],
         ]
 }
 
@@ -45,9 +47,18 @@ const relatedReact = {
         ]
 }
 
+const network = {
+    title: '网络协议',
+    collapsable: true,
+        children: [
+            ['/network/浏览器.md', '浏览器'],
+        ]
+}
+
 module.exports = [
     JavaScript,
     React,
     relatedReact,
-    ES6
+    ES6,
+    network
 ]
