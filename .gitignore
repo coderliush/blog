@@ -10,7 +10,7 @@
 
 # production
 /build
-# /docs/.vuepress/dist/*
+/docs/.vuepress/dist
 /es
 
 # misc
