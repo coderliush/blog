@@ -137,4 +137,3 @@ function Child() {
 
 export default Parent
 ```
-Q：为什么废弃老的 context 方式

@@ -2,13 +2,12 @@
  * @Description: 
  * @Author: liushuhao
  * @Date: 2021-02-02 14:49:31
- * @LastEditors: Do not edit
+ * @LastEditors: liushuhao
  */
 const JavaScript = {
     title: 'JavaScript基础',
     collapsable: true,
         children: [
-            // ['/JavaScript/变量、作用域和内存.md', '变量、作用域和内存'],
             ['/JavaScript/柯里化和偏函数.md', '柯里化和偏函数'],
             ['/JavaScript/事件循环.md', '事件循环'],
             ['/JavaScript/手写代码.md', '手写代码'],

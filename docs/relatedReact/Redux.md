@@ -394,7 +394,7 @@ export default function applyMiddleware(...middlewares) {
   }
 }
 ```
-compose
+## compose
 ```js
 function compose(...funcs) {
     //如果没有中间件
