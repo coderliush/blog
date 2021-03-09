@@ -1,8 +1,8 @@
 /*
  * @Author: liushuhao
  * @Date: 2021-02-27 10:04:19
- * @LastEditors: Do not edit
- * @LastEditTime: 2021-03-07 20:51:22
+ * @LastEditors: liushuhao
+ * @LastEditTime: 2021-03-08 16:30:19
  */
 const blog = {
     text: '博客',
@@ -21,32 +21,6 @@ const react = {
 
 module.exports = [
     blog,
-    algorithm,
-    react
+    // algorithm,
+    // react
 ]
-function dounce(fn, wait) {
-    let timer = null;
-    return function () {
-        if (timer) {
-            clearTimeout(timer)
-        }
-        timer = setTimeout(() => {
-            fn.apply(this, arguments)
-            timer = null
-        }, wait)
-    }
-}
-
-
-function throttle(fn, wait) {
-    let timer = null;
-    return function () {
-        if (timer) {
-            return
-        }
-        timer = setTimeout(() => {
-            fn.apply(this, arguments)
-            timer = null
-        }, wait)
-    }
-}
