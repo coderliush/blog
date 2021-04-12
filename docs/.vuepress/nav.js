@@ -21,6 +21,6 @@ const react = {
 
 module.exports = [
     blog,
-    // algorithm,
-    // react
+    algorithm,
+    react
 ]

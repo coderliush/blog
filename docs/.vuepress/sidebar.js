@@ -54,10 +54,19 @@ const network = {
         ]
 }
 
+const algorithm = {
+    title: '算法和数据结构',
+    collapsable: true,
+        children: [
+            ['/algorithm/数组/排序.md', '排序'],
+        ]
+}
+
 module.exports = [
     JavaScript,
     React,
     relatedReact,
     ES6,
+    algorithm,
     network
 ]
