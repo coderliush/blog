@@ -59,6 +59,7 @@ const algorithm = {
     collapsable: true,
         children: [
             ['/algorithm/数组/排序.md', '排序'],
+            ['/algorithm/练习一/算法题.md', '算法题'],
         ]
 }
 

@@ -20,10 +20,10 @@
     </div>
 
     <script>
-        
-                document.querySelector('#child').addEventListener('click', () => {
-                    console.log('child 冒泡');
-                }, false)
+
+        document.querySelector('#child').addEventListener('click', () => {
+            console.log('child 冒泡');
+        }, false)
 
         document.querySelector('#child').addEventListener('click', () => {
             console.log('child 捕获');
@@ -35,6 +35,78 @@
         document.querySelector('#parent').addEventListener('click', () => {
             console.log('parent 捕获');
         }, true)
+
+
+    </script>
+
+    <script>
+       function fn (...args1) {
+        let args = [...args1]
+        let f = function (...args2) {
+          args = [...args, ...args2]
+          return f
+         }
+
+         f.getValue = function () {
+          return args.reduce((a, b) => a + b)
+         }
+
+        return f
+       }
+
+       let f1 = fn(1,2,4)(3)
+       console.log('---', f1.getValue());
+    </script>
+
+    <script>
+      const node = [{
+        id: 1,
+        parentId: 0
+      }, {
+        id: 2,
+        parentId: 1
+      }, {
+        id: 3,
+        parentId: 2
+      }, {
+        id: 5, 
+        parentId: 3
+      }, {
+        id: 6,
+        parentId: 3
+      }]
+
+      // function tree(node) {
+      //   node.forEach(item => {
+      //     node.forEach(each => {
+      //       debugger
+      //       if (item.parentId === each.id) {
+      //         if (each.children) {
+      //           each.children.push(item)
+      //         } else {
+      //           each.children = [item]
+      //         }
+      //       } else {
+      //         return [item]
+      //       }
+      //     })
+      //   })
+      // }
+
+      // function tree(node) {
+      //   const map = {}
+      //   node.forEach(item => {
+      //     map[item.id] = item
+      //   })
+
+      //   node.forEach(item => {
+
+      //   })
+      // }
+
+      
+
+      console.log('111', tree(node));
 
 
     </script>

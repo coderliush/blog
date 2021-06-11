@@ -255,6 +255,7 @@ Promise.all([promise1, promise2, promise3]).then((values) => {
 ```js
 Promise.all = function (promiseList) {
     return new Promise((resolve, reject) => {
+        let length = 0
         let res = []
         if (promiseList.length === 0) {
             resolve(res)
@@ -262,7 +263,8 @@ Promise.all = function (promiseList) {
             for (let i = 0; i < promiseList.length; i++) {
                 Promise.resolve(promiseList[i]).then(value => {
                     res[i] = value
-                    if (res.length === promiseList.length) {
+                    length ++
+                    if (length === promiseList.length) {
                         resolve(res)
                     }
                 }, (reason) => {
